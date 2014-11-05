@@ -1,19 +1,20 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
-<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 
-<polymer-element name="cl-stage" attributes="">
+<polymer-element name="cl-stage" attributes="selected">
   <template>
     <link rel="stylesheet" href="cl-stage.css">
-    <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
-    <paper-tabs selected="0">
-      <paper-tab>Kalender</paper-tab>
-      <paper-tab>Stem mee</paper-tab>
-    </paper-tabs>
-    <h1>Kalender</h1>
-    <p>Hieronder staan dus de aangekondigde streams.</p>
-    <template repeat="{{key in keys}}">
-      <cl-calitem key="{{key}}"></cl-calitem>
+    <template if="{{ selected == 0 }}">
+      <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
+      <h1>Kalender</h1>
+      <p>Hieronder staan dus de aangekondigde streams.</p>
+      <template repeat="{{key in keys}}">
+        <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
+      </template>
+    </template>
+    <template if="{{ selected == 1 }}">
+      <h1>Stem op jouw favoriet</h1>
+        <cl-voteitem ></cl-voteitem>
     </template>
   </template>
   <script>
@@ -22,6 +23,9 @@
 
       Polymer({
         // define element prototype here
+        ready: function(){
+         
+        }
       });
 
     })();

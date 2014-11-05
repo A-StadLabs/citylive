@@ -1,9 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="cl-calitem" attributes="key">
+<polymer-element name="cl-calitem" attributes="key data">
   <template>
     <link rel="stylesheet" href="cl-calitem.css">
-    <p>{{key}}</p>
+    <p>{{key}} / {{data.naam}}</p>
   </template>
   <script>
     (function () {
