@@ -15,6 +15,9 @@
     <template if="{{ selected == 1 }}">
             <p>Hieronder komen de voorstellen.</p>
 
+
+    <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
+      <h1>Stem op jouw favoriet</h1>
         <cl-voteitem ></cl-voteitem>
     </template>
   </template>
