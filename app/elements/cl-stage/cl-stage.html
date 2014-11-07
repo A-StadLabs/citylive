@@ -8,6 +8,7 @@
       <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
       <h1>Kalender</h1>
       <p>Hieronder staan dus de aangekondigde streams.</p>
+      <cl-stream></cl-stream>
       <template repeat="{{key in keys}}">
         <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
       </template>
