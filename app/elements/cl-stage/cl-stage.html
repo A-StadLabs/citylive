@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="cl-stage.css">
     <template if="{{ selected == 0 }}">
       <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
+
+      <cl-stream></cl-stream>
+
       <template repeat="{{key in keys}}">
         <div vertical layout center>
         <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
