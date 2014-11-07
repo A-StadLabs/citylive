@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="cl-stage.css">
     <template if="{{ selected == 0 }}">
       <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
-
-      <cl-stream></cl-stream>
-
+      <h1>NU LIVE:</h1>
+      <p>Er is momenteel geen livestream.</p>
+      <!-- <cl-stream></cl-stream> -->
+      <h1>Kalender</h1>
       <template repeat="{{key in keys}}">
         <div vertical layout center>
         <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
@@ -16,12 +17,11 @@
       </template>
     </template>
     <template if="{{ selected == 1 }}">
-            <p>Hieronder komen de voorstellen.</p>
-
-
-    <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
       <h1>Stem op jouw favoriet</h1>
-        <cl-voteitem ></cl-voteitem>
+      <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
+      <template repeat="{{key1 in keys2}}">
+        <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
+      </template>
     </template>
   </template>
   <script>
@@ -31,7 +31,7 @@
       Polymer({
         // define element prototype here
         ready: function(){
-         
+         //this.selected = 1;
         }
       });
 
