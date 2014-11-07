@@ -13,18 +13,34 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
 
+
   <script src="bower_components/platform/platform.js"></script>
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
+  <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900' rel='stylesheet' type='text/css'>
   <!-- endbuild-->
 </head>
 
-<body unresolved>
-<paper-tabs selected="0" id="tabs">
+<body unresolved fullbleed  vertical layout center>
+
+<paper-tabs selected="0" id="tabs" noink nobar flex>
   <paper-tab>Kalender</paper-tab>
   <paper-tab>Stem mee</paper-tab>
 </paper-tabs>
+
+
+
+<!-- 
+<core-selector selected="0" id="tabs">
+  <core-item>Kalender</core-item>
+  <core-item>Stem mee</core-item>
+</core-selector> -->
+
+
+
 <cl-stage selected="0"></cl-stage>
+
 <!-- build:js scripts/app.js -->
 <script src="scripts/app.js"></script>
 <!-- endbuild-->

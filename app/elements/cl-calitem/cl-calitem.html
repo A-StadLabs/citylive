@@ -3,7 +3,10 @@
 <polymer-element name="cl-calitem" attributes="key data">
   <template>
     <link rel="stylesheet" href="cl-calitem.css">
-    <p>{{key}} / {{data.naam}}</p>
+    <div vertical layout center>
+    <h1>{{data.naam}}</h1>
+    <small>{{key}}</small>
+    </div>
   </template>
   <script>
     (function () {
