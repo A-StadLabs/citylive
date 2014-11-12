@@ -16,20 +16,42 @@
 h1 {
 	text-transform: uppercase;
 	font-weight: 900;
-	margin: 0px  0px  0px  0px;
-   color: #E84310;
+	margin: -5px  0px  0px  0px;
+  color: rgba(0,0,0,0.35);
   font-size: 4vh;
 }
 
 
+h3 {
+	font-weight: 700;
+   color: #E84310;
+	margin: 10px  0px  10px  0px;
+}
+
+p {
+	margin: 10px  0px  5px  0px;
+	padding: 0px  0px  0px  0px;
+		color: #666666;
+
+}
+
 svg {
   display: block;
-  fill: #777;
-  height: 16px;
+  fill: #F0BEAF;
+  height: 10px;
   overflow: hidden;
-  width: 32px;
+  width: 20px;
 }
 
 svg.highlight {
-  fill: #ff8c00;
+  fill: #E84310;
+}
+
+
+#info {
+	padding-right: 20px;
+}
+
+
+#voterij {
 }

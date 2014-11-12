@@ -1,11 +1,23 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="../../bower_components/core-overlay/core-overlay.html">
+<link rel="import" href="../../bower_components/core-transition/core-transition-css.html">
+
 
 <polymer-element name="cl-stage" attributes="selected">
   <template>
 
+
     <link rel="stylesheet" href="cl-stage.css">
     <div vertical layout center>
+      <core-overlay id="collapse" layered backdrop transition="core-transition-center">
+      <div class="overlaying">
+       <h3>Waarom heeft die fokking overlay geen background? Snap er niks van!</h3>
+         <button core-overlay-toggle>OK</button>
+
+     </div>
+        </core-overlay>
+
 
     <template if="{{ selected == 0 }}">
 
@@ -23,7 +35,11 @@
 
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
-            <div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
+            <div id="vrstlbtn" stretch on-tap="{{toggleVrstlUpload}}">Doe zelf een voorstel</div>
+
+
+
+
 
           <div horizontal layout center wrap id="kaki">
 
@@ -47,8 +63,16 @@
         // define element prototype here
         ready: function(){
          this.selected = 0;
-         console.log(this.selected);
+         // console.log(this.selected);
+
+        },
+
+              toggleVrstlUpload: function(){
+          this.$.collapse.toggle();
+         console.log('TTTEEEEEESSSSTTT');
         }
+
+
       });
 
     })();
