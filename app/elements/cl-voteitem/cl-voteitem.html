@@ -2,7 +2,6 @@
 <link rel="import" href="../../bower_components/cw-vote/cw-vote.html">
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 
-
 <polymer-element name="cl-voteitem" attributes="key data votes">
   <template>
     <link rel="stylesheet" href="cl-voteitem.css">
@@ -12,33 +11,25 @@
     <p>{{data.descr}}</p>
     <div horizontal layout center>
 
-
-
-<svg id="btAdd" viewBox="0 0 10 5" on-tap="{{addVote}}" class="{{ { highlight: userValue === 1 } | tokenList }}">
+    <svg id="btAdd" viewBox="0 0 10 5" on-tap="{{addVote}}" class="{{ { highlight: userValue === 1 } | tokenList }}">
       <polygon points="0,5 5,0 10,5"></polygon>
     </svg>
 
-
-
     {{votes}}
 
-<svg id="btRem" viewBox="0 0 10 5" on-tap="{{remVote}}" class="{{ { highlight: userValue === -1 } | tokenList }}">
+    <svg id="btRem" viewBox="0 0 10 5" on-tap="{{remVote}}" class="{{ { highlight: userValue === -1 } | tokenList }}">
       <polygon points="0,0 5,5 10,0"></polygon>
     </svg>
 
-
-
-
-
+    </div>
 
   </div>
-  </div>
+
   </template>
 
   <script>
     (function () {
       'use strict';
-
 
       Polymer({
 
@@ -113,9 +104,7 @@
             this.FBRemVote();
           }
         },
-
-        
-
+     
       });
 
     })();
