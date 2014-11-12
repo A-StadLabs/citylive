@@ -3,7 +3,8 @@
    padding: 20px;
    margin-bottom: 10px;
    border-bottom: 2px solid rgba(255,255,255,0.1);
-   width: 60vw;
+   width: 85vw;
+   background-color: #EB2A10;
 }
 
 
@@ -13,6 +14,8 @@ h1 {
 	margin: 0px  0px  0px  0px;
 /*   -webkit-text-stroke: 1px #A81841;*/
    color: white;
+  font-size: 4vmax;
+
 
 /*   text-shadow:
        1px 1px 0 #A81841,
@@ -21,12 +24,23 @@ h1 {
 
 
 h3 {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.5);
     text-transform: uppercase;
+    font-size: 4vmax;
+      font-weight: 700;
+
+      margin: 0px  0px  0px  0px;
+
 }
 
 
 small {
 	font-weight: 900;
 	color: white;
+}
+
+
+.klok {
+  opacity: 0.2;
+  height: 
 }
