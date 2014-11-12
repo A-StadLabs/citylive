@@ -1,3 +1,35 @@
 :host {
   display: block;
+   padding: 20px;
+   margin: 0px 5px 10px 5px;
+   border-bottom: 1px solid rgba(0,0,0,0.1);
+   width: 85vw;
+    max-width: 400px;
+/*    box-shadow: 1px 1px 4px rgba(0,0,0,0.05);*/
+   background-color: white;
+}
+
+
+
+
+
+h1 {
+	text-transform: uppercase;
+	font-weight: 900;
+	margin: 0px  0px  0px  0px;
+   color: #E84310;
+  font-size: 4vh;
+}
+
+
+svg {
+  display: block;
+  fill: #777;
+  height: 16px;
+  overflow: hidden;
+  width: 32px;
+}
+
+svg.highlight {
+  fill: #ff8c00;
 }

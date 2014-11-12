@@ -29,7 +29,7 @@
 
     </template>
     <template if="{{ selected == 1 }}">
-      <h1>Stem op jouw favoriet</h1>
+      <div id="vrstlbtn">Stem op jouw favoriet</div>
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
       <template repeat="{{key1 in keys2}}">
         <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
