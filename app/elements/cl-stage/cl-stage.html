@@ -7,32 +7,26 @@
     <link rel="stylesheet" href="cl-stage.css">
     <div vertical layout center>
 
-
     <template if="{{ selected == 0 }}">
-      <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
 
+    <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
 
-
-
-
-
-
-<!--       <h1>Geplande streams</h1>
- -->      
     <div horizontal layout center wrap id="kaki">
 
       <template repeat="{{key in keys}}">
         <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
-
       </template>
-</div>
+
+    </div>
 
     </template>
+
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
             <div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
 
           <div horizontal layout center wrap id="kaki">
+
 
       <template repeat="{{key1 in keys2}}">
         <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
@@ -41,6 +35,7 @@
 
     </template>
   </div>
+
 
   </template>
 
