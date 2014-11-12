@@ -29,13 +29,18 @@
 
     </template>
     <template if="{{ selected == 1 }}">
-      <div id="vrstlbtn">Stem op jouw favoriet</div>
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
+            <div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
+
+          <div horizontal layout center wrap id="kaki">
+
       <template repeat="{{key1 in keys2}}">
         <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
       </template>
-    </template>
+      </div>
 
+    </template>
+  </div>
 
   </template>
 

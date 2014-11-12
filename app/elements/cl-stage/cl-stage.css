@@ -6,6 +6,24 @@
 
 
 #vrstlbtn {
-	background-color: black;
-	color: 
+	background-color:  rgba(255,255,255,0.5);
+	 padding-top: 20px;
+	 padding-bottom: 20px;
+	 text-align: center;
+   	 width: 85vw;
+     max-width: 400px;
+	 margin-top: 5vh;
+	 margin-bottom: 5vh;
+	 box-shadow: 4px 4px 0px  rgba(0,0,0,0.025);
+	 color: #E84310;
+	 text-transform: uppercase;
+	 font-weight: 900;
+	 font-size: 3vh;
+}
+
+
+
+#vrstlbtn:hover {
+	background-color: #E84310;
+	color: white;
 }
