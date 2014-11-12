@@ -3,7 +3,10 @@
 
 <polymer-element name="cl-stage" attributes="selected">
   <template>
-        <link rel="stylesheet" href="cl-stage.css">
+
+    <link rel="stylesheet" href="cl-stage.css">
+    <div vertical layout center>
+
 
     <template if="{{ selected == 0 }}">
       <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
