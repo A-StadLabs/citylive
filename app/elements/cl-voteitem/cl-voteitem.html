@@ -6,11 +6,32 @@
 <polymer-element name="cl-voteitem" attributes="key data votes">
   <template>
     <link rel="stylesheet" href="cl-voteitem.css">
-    Voorstel {{data.naam}}
-    Aantal stemmen
-    <core-icon-button id="btAdd" icon="add" on-tap="{{addVote}}"></core-icon-button>
+
+    <div vertical layout>
+    <h1>Voorstel {{data.naam}}</h1>
+    <div horizontal layout center>
+
+
+
+<svg id="btAdd" viewBox="0 0 10 5" on-tap="{{addVote}}" class="{{ { highlight: userValue === 1 } | tokenList }}">
+      <polygon points="0,5 5,0 10,5"></polygon>
+    </svg>
+
+
+
     {{votes}}
-    <core-icon-button id="btRem" icon="remove" on-tap="{{remVote}}"></core-icon-button>
+
+<svg id="btRem" viewBox="0 0 10 5" on-tap="{{remVote}}" class="{{ { highlight: userValue === -1 } | tokenList }}">
+      <polygon points="0,5 5,0 10,5"></polygon>
+    </svg>
+
+
+
+
+
+
+  </div>
+  </div>
   </template>
 
   <script>
