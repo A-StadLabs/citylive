@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/cw-vote/cw-vote.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 
 
 <polymer-element name="cl-voteitem" attributes="key data votes">
@@ -7,8 +8,8 @@
     <link rel="stylesheet" href="cl-voteitem.css">
     Voorstel {{data.naam}}
     Aantal stemmen
-    <core-icon-button icon="add" disabled?="{{!plusVote}}" on-tap="{{addVote}}"></core-icon-button>
-    {{votes}}<core-icon-button disabled?="{{!minVote}}" icon="remove" on-tap="{{remVote}}"></core-icon-button>
+    <core-icon-button id="btAdd" icon="add" on-tap="{{addVote}}"></core-icon-button>
+    {{votes}}<core-icon-button id="btRem" icon="remove" on-tap="{{remVote}}"></core-icon-button>
   </template>
   <script>
     (function () {
@@ -16,44 +17,74 @@
 
 
       Polymer({
+
         // define element prototype here
         ready: function(){
-          this.plusVote = true;
-          this.minVote = true;
+        },
+
+        FBAddVote: function(){
+          var addPlay = new Firebase('https://citylive.firebaseio.com/requests/'+this.key+'/votes');
+          addPlay.transaction(function(currentRank) {
+            return currentRank+1;
+          });
+        },
+
+        FBRemVote: function(){
+          var addPlay = new Firebase('https://citylive.firebaseio.com/requests/'+this.key+'/votes');
+          addPlay.transaction(function(currentRank) {
+            return currentRank-1;
+          });
+        },
+
+        DeactivatePlus: function(){
+          var that = this;
+          //that.votes--;
+          this.FBRemVote();
+          that.$.btAdd.active = false;
+        },
+
+        DeactivateMin: function(){
+          var that = this;
+          //that.votes++;
+          this.FBAddVote();
+          that.$.btRem.active = false;
         },
 
         addVote: function(){
-
           var that = this;
 
-          if(that.plusVote){
-          var addPlay = new Firebase('https://citylive.firebaseio.com/requests/'+this.key+'/votes');
-
-            addPlay.transaction(function(currentRank) {
-                   // If /users/fred/rank has never been set, currentRank will be null.
-                  return currentRank+1;
-                });
-
-          that.plusVote = false;
-          that.minVote = true;
+          if(that.$.btAdd.active){
+            this.DeactivatePlus();
+          } else {
+            if(that.$.btRem.active){
+              this.DeactivateMin();
+            }
+            that.$.btAdd.active = true;
+            that.$.btRem.active = false;
+            console.log('Deze button was NIET actief en geklikt');
+            //that.votes++;
+            this.FBAddVote();
           }
         },
+
         remVote: function(){
           var that = this;
-
-          if(that.minVote){
-          var addPlay = new Firebase('https://citylive.firebaseio.com/requests/'+this.key+'/votes');
-
-            addPlay.transaction(function(currentRank) {
-                   // If /users/fred/rank has never been set, currentRank will be null.
-                  return currentRank-1;
-                });
-
-          that.minVote = false;
-          that.plusVote = true;
-
+          if(that.$.btRem.active){
+            this.DeactivateMin();
+          } else {
+            if(that.$.btAdd.active){
+              this.DeactivatePlus();
+            }
+            that.$.btRem.active = true;
+            that.$.btAdd.active = false;
+            console.log('Deze button was NIET actief en geklikt');
+            //that.votes--;
+            this.FBRemVote();
           }
         },
+
+        
+
       });
 
     })();
