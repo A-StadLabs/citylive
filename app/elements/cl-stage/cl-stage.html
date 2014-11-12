@@ -13,12 +13,19 @@
 
 
 
+
 <!--       <h1>Geplande streams</h1>
  -->      
     <div horizontal layout center wrap id="kaki">
 
- <template repeat="{{key in keys}}">
-        <cl-calitem key="{{key}}" data="{{ data[key] }}" two></cl-calitem>
+      <h1>NU LIVE:</h1>
+
+      <p>Er is momenteel geen livestream.</p>
+      <!-- <cl-stream></cl-stream> -->
+      <h1>Geplande streams</h1>
+      <template repeat="{{key in keys}}">
+        <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>
+
       </template>
 </div>
 
