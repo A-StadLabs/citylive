@@ -9,8 +9,10 @@
     Voorstel {{data.naam}}
     Aantal stemmen
     <core-icon-button id="btAdd" icon="add" on-tap="{{addVote}}"></core-icon-button>
-    {{votes}}<core-icon-button id="btRem" icon="remove" on-tap="{{remVote}}"></core-icon-button>
+    {{votes}}
+    <core-icon-button id="btRem" icon="remove" on-tap="{{remVote}}"></core-icon-button>
   </template>
+
   <script>
     (function () {
       'use strict';
@@ -53,6 +55,8 @@
         addVote: function(){
           var that = this;
 
+          this.userValue = 1;
+
           if(that.$.btAdd.active){
             this.DeactivatePlus();
           } else {
@@ -69,6 +73,9 @@
 
         remVote: function(){
           var that = this;
+
+          this.userValue = -1;
+
           if(that.$.btRem.active){
             this.DeactivateMin();
           } else {
