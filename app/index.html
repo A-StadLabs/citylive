@@ -25,13 +25,21 @@
 </head>
 
 <body unresolved fullbleed>
-<paper-tabs selected="1" id="tabs" noink nobar>
+
+<div vertical layout center center-justified class="streamz">
+      <h1>NU LIVE:</h1>
+      <p>Er is momenteel geen livestream.</p>
+<!--             <cl-stream></cl-stream> -->
+
+</div>
+      <paper-tabs selected="0" id="tabs" noink nobar>
   <paper-tab>Aangekondigd</paper-tab>
   <paper-tab>Stem mee!</paper-tab>
 </paper-tabs>
 
-<cl-stage selected="1"></cl-stage>
-
+<div vertical layout center center-justified>
+<cl-stage selected="0"></cl-stage>
+</div>
 <!-- build:js scripts/app.js -->
 <script src="scripts/app.js"></script>
 <!-- endbuild-->
