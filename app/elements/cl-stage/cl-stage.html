@@ -1,7 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
-<link rel="import" href="../../bower_components/core-overlay/core-overlay.html">
-<link rel="import" href="../../bower_components/core-transition/core-transition-css.html">
+
 
 
 <polymer-element name="cl-stage" attributes="selected">
@@ -30,11 +29,11 @@
       </template>
 
     </div>
-
     </template>
 
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
+
             <div id="vrstlbtn" stretch on-tap="{{toggleVrstlUpload}}">Doe zelf een voorstel</div>
 
 
@@ -44,15 +43,16 @@
           <div horizontal layout center wrap id="kaki">
 
 
+
+      <core-icon-button on-tap="{{sortAZ}}"></core-icon-button>
+
       <template repeat="{{key1 in keys2}}">
         <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
       </template>
       </div>
-
     </template>
+
   </div>
-
-
   </template>
 
   <script>
