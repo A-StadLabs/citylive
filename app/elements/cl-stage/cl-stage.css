@@ -1,3 +1,20 @@
 :host {
   display: block;
 }
+
+
+h1 {
+	font-size: 3vh;
+	font-weight: 700;
+	color: rgba(255,255,255,0.3);
+	text-transform: uppercase;
+	margin-bottom: 20px;
+
+}
+
+p {
+	background-color: rgba(255,255,255,0.1);
+	padding: 20px;
+	margin: 0px 0px 20px 0px;
+	font-size: 2.5vh;
+}
