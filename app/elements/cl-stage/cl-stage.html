@@ -22,7 +22,7 @@
 
     <firebase-element id="base" on-data-change="{{handleResponse}}" keys="{{keys}}" data="{{data}}" log location="https://citylive.firebaseio.com/kalender/"></firebase-element>
 
-    <div horizontal layout center wrap id="kaki">
+    <div horizontal layout start wrap id="kaki">
 
       <template repeat="{{key in keys}}">
         <cl-calitem key="{{key}}" data="{{ data[key] }}"></cl-calitem>

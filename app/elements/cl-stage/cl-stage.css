@@ -2,8 +2,16 @@
   display: block;
   width: 95vw;
   margin-top: 10px;
+
 }
 
+#kaki {
+  width: 95vw;
+}
+
+cl-calitem {
+	    width: 404px;
+}
 
 #vrstlbtn {
 	background-color:  rgba(0,0,0,0.075);
