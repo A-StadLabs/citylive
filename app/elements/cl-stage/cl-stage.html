@@ -1,12 +1,22 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+
+
 
 <polymer-element name="cl-stage" attributes="selected">
   <template>
 
+
     <link rel="stylesheet" href="cl-stage.css">
     <div vertical layout center>
+      <core-overlay id="collapse" layered backdrop transition="core-transition-center">
+      <div class="overlaying">
+       <h3>Waarom heeft die fokking overlay geen background? Snap er niks van!</h3>
+         <button core-overlay-toggle>OK</button>
+
+     </div>
+        </core-overlay>
+
 
     <template if="{{ selected == 0 }}">
 
@@ -29,6 +39,21 @@
           <cl-voteitem key="{{k}}" data="{{data2[k]}}" votes="{{data2[k].votes}}"></cl-voteitem>
          
         </template>
+
+
+
+
+
+
+          <div horizontal layout center wrap id="kaki">
+
+
+
+      <core-icon-button on-tap="{{sortAZ}}"></core-icon-button>
+
+      <template repeat="{{key1 in keys2}}">
+        <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
+      </template>
       </div>
     </template>
 
@@ -57,8 +82,15 @@
           };
           console.log('sorter: ', sorter);
           items.sort(sorter);
+        },
+
+
+        toggleVrstlUpload: function(){
+          this.$.collapse.toggle();
+         console.log('TTTEEEEEESSSSTTT');
         }
-  
+
+
       });
 
     })();

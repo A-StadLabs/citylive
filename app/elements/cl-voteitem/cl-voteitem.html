@@ -5,28 +5,27 @@
   <template>
     <link rel="stylesheet" href="cl-voteitem.css">
 
-    <div horizontal layout>
-    <h1>Voorstel {{data.naam}}</h1>
-
-    <div vertical layout center>
-
-    <p>{{data.descr}}</p>
-    <div horizontal layout center>
-
-
-    <svg id="btAdd" viewBox="0 0 10 5" on-tap="{{addVote}}" class="{{ { highlight: userValue === 1 } | tokenList }}">
-      <polygon points="0,5 5,0 10,5"></polygon>
-    </svg>
-
-    {{votes}}
-
-    <svg id="btRem" viewBox="0 0 10 5" on-tap="{{remVote}}" class="{{ { highlight: userValue === -1 } | tokenList }}">
-      <polygon points="0,0 5,5 10,0"></polygon>
-    </svg>
-
-    </div>
+      <div horizontal layout>
+    <div flex id="info">
+    <h1>{{data.naam}}</h1>    <p>{{data.descr}}</p>
 
   </div>
+
+
+    <div vertical layout center id="voterij">
+      <svg id="btAdd" viewBox="0 0 10 5" on-tap="{{addVote}}" class="{{ { highlight: userValue === 1 } | tokenList }}">
+      <polygon points="0,5 5,0 10,5"></polygon>
+      </svg>
+      <h3>{{votes}}</h3>
+      <svg id="btRem" viewBox="0 0 10 5" on-tap="{{remVote}}" class="{{ { highlight: userValue === -1 } | tokenList }}">
+      <polygon points="0,0 5,5 10,0"></polygon>
+      </svg>
+    </div>
+  
+  </div>
+
+
+
 
   </template>
 
