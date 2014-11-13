@@ -70,21 +70,7 @@
          this.selected = 0;
         },
 
-        orderBy: function(items, key) {
-
-          var sorter = function (a, b) {
-            console.log('test: ', a[key]);
-            var titleA = a[key].toLowerCase(), titleB = b[key].toLowerCase();
-            console.log('in sorter: ', titleA);
-            if (titleA < titleB)  return -1;
-            if (titleA > titleB) return 1;
-            return 0;
-          };
-          console.log('sorter: ', sorter);
-          items.sort(sorter);
-        },
-
-
+       
         toggleVrstlUpload: function(){
           this.$.collapse.toggle();
          console.log('TTTEEEEEESSSSTTT');
