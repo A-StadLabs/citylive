@@ -33,8 +33,13 @@
 
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
+      <div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
+        <template repeat="{{ k in keys2 | orderBy('votes') }}">
+      
+          <cl-voteitem key="{{k}}" data="{{data2[k]}}" votes="{{data2[k].votes}}"></cl-voteitem>
+         
+        </template>
 
-            <div id="vrstlbtn" stretch on-tap="{{toggleVrstlUpload}}">Doe zelf een voorstel</div>
 
 
 
@@ -63,11 +68,24 @@
         // define element prototype here
         ready: function(){
          this.selected = 0;
-         // console.log(this.selected);
-
         },
 
-              toggleVrstlUpload: function(){
+        orderBy: function(items, key) {
+
+          var sorter = function (a, b) {
+            console.log('test: ', a[key]);
+            var titleA = a[key].toLowerCase(), titleB = b[key].toLowerCase();
+            console.log('in sorter: ', titleA);
+            if (titleA < titleB)  return -1;
+            if (titleA > titleB) return 1;
+            return 0;
+          };
+          console.log('sorter: ', sorter);
+          items.sort(sorter);
+        },
+
+
+        toggleVrstlUpload: function(){
           this.$.collapse.toggle();
          console.log('TTTEEEEEESSSSTTT');
         }
