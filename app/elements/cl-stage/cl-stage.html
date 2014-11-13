@@ -33,27 +33,18 @@
 
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
-      <div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
-        <template repeat="{{ k in keys2 | orderBy('votes') }}">
+      
+
+          <div horizontal layout center wrap id="kaki">
+
+<div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
+        <template repeat="{{ k in keys2 }}">
       
           <cl-voteitem key="{{k}}" data="{{data2[k]}}" votes="{{data2[k].votes}}"></cl-voteitem>
          
         </template>
 
 
-
-
-
-
-          <div horizontal layout center wrap id="kaki">
-
-
-
-      <core-icon-button on-tap="{{sortAZ}}"></core-icon-button>
-
-      <template repeat="{{key1 in keys2}}">
-        <cl-voteitem key="{{key1}}" data="{{data2[key1]}}" votes="{{data2[key1].votes}}"></cl-voteitem>
-      </template>
       </div>
     </template>
 
