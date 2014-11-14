@@ -2,20 +2,13 @@
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 
 
-
 <polymer-element name="cl-stage" attributes="selected">
   <template>
 
 
     <link rel="stylesheet" href="cl-stage.css">
     <div vertical layout center>
-      <core-overlay id="collapse" layered backdrop transition="core-transition-center">
-      <div class="overlaying">
-       <h3>Waarom heeft die fokking overlay geen background? Snap er niks van!</h3>
-         <button core-overlay-toggle>OK</button>
 
-     </div>
-        </core-overlay>
 
 
     <template if="{{ selected == 0 }}">
@@ -34,10 +27,11 @@
     <template if="{{ selected == 1 }}">
       <firebase-element id="base2" keys="{{keys2}}" data="{{data2}}" log location="https://citylive.firebaseio.com/requests/"></firebase-element>
       
+      <cl-request></cl-request>
+
 
           <div horizontal layout center wrap id="kaki">
 
-<div id="vrstlbtn" stretch>Doe zelf een voorstel</div>
         <template repeat="{{ k in keys2 }}">
       
           <cl-voteitem key="{{k}}" data="{{data2[k]}}" votes="{{data2[k].votes}}"></cl-voteitem>
@@ -46,6 +40,9 @@
 
 
       </div>
+
+
+
     </template>
 
   </div>
@@ -59,14 +56,7 @@
         // define element prototype here
         ready: function(){
          this.selected = 0;
-        },
-
-       
-        toggleVrstlUpload: function(){
-          this.$.collapse.toggle();
-         console.log('TTTEEEEEESSSSTTT');
         }
-
 
       });
 

@@ -3,8 +3,20 @@
 <polymer-element name="cl-request" attributes="">
   <template>
     <link rel="stylesheet" href="cl-request.css">
-    <input id="titel" value="{{titel}}" placeholder="Geef jouw voorstel een titel" />
-    <input id="descr" value="{{descr}}" placeholder="Beschrijf jouw voorstel" />
+    <core-ajax method="POST" on-core-response="{{response}}" id="suggestPost" handleAs="json" data url="https://citylive.firebaseio.com/requests/.json"></core-ajax>
+
+    <div id="vrstlbtn" on-tap="{{toggleVrstlUpload}}" stretch>Doe zelf een voorstel</div>
+
+
+<core-collapse id="collapse">
+  <div class="collapse-content" vertical layout center stretch>
+        <input id="titel" required value="{{titel}}" placeholder="Geef jouw voorstel een titel"></input>
+    <input id="descr" required value="{{descr}}" placeholder="Beschrijf jouw voorstel"></input>
+    <div id="submitbtn" on-tap="{{SubMit}}">Verzenden</div>
+
+  </div>
+</core-collapse>
+
 
   </template>
   <script>
@@ -12,6 +24,36 @@
       'use strict';
 
       Polymer({
+        ready: function(){
+        this.descr = '';
+        this.titel = '';
+      },
+
+       
+        toggleVrstlUpload: function(){
+        this.$.collapse.toggle();
+
+        },
+
+        SubMit: function(){
+          // this.$.buttons.disabled = true;
+          var that = this;
+          this.body = { 'descr': this.descr, 'naam': this.titel, 'votes': 0 };
+          this.body = JSON.stringify(this.body);
+          that.$.suggestPost.body = this.body;
+          that.$.suggestPost.go();
+
+                   console.log('VERSTUREN MAAARRRRRRR');
+
+        },
+
+        response: function(e){
+          console.log('response: ', e.detail.response.name);
+        },
+
+
+
+
         // define element prototype here
       });
 

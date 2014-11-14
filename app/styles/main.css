@@ -48,12 +48,20 @@ paper-tabs {
 
 paper-tabs .core-selected {
 /*      background-color: #1BC255;*/
-      background-color:  rgba(255,255,255,0.10);
-      color: white;
-      font-weight: 700;
-
+/*      background-color:  rgba(255,255,255,0.15);
+*/      font-weight: 700;
 }
 
+
+
+
+paper-tabs::shadow #selectionBar {
+  background-color: black;
+  max-width: 14vw;
+  margin-left: 18vw;
+  margin-right: 18vw;
+  height: 3px;
+}
 
 
 /*.hero-unit {

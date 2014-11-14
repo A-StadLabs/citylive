@@ -13,34 +13,3 @@ cl-calitem {
 	    width: 404px;
 }
 
-#vrstlbtn {
-	background-color:  rgba(0,0,0,0.075);
-	 padding: 20px 5px 20px 5px;
-	 text-align: center;
-   	 width: 85vw;
-     max-width: 400px;
-	 margin-top: 2vh;
-	 margin-bottom: 3.5vh;
-/*	 box-shadow: 4px 4px 0px  rgba(0,0,0,0.025);
-*/	 color: #333333;
-	 text-transform: uppercase;
-	 font-weight: 900;
-	 font-size: 3vh;
-	 border-bottom: 3px solid  #E84310;
-}
-
-
-
-#vrstlbtn:hover {
-	background-color: #333333;
-	color: white;
-}
-
-
-.overlaying {
-	background-color: white;
-	display: inline;
-	width: 200px;
-	height: 200px;
-	color: red;
-}
